@@ -1,0 +1,65 @@
+<div class="container">
+  <div class='row'>
+      <div class='col-xs-12'>
+          <h2>Ultimate Bussiness Owner</h2>
+          <form [formGroup]="uboForm" (ngSubmit)="uboForm.valid && submitRegistration(uboForm.value)" novalidate>
+
+              <fieldset class="form-group">
+                  <label for="lblentityName">Entity Name</label>
+                  <input type="text" class="form-control" placeholder="Entity Name" formControlName="entityName">
+                  <div class='form-text error' *ngIf="uboForm.controls.entityName.touched">
+                      <div *ngIf="uboForm.controls.entityname.hasError('required')">Entity Name is required.</div>
+                  </div>
+              </fieldset>
+
+              <fieldset class="form-group">
+                  <label for="lblEIN">lblEIN</label>
+                  <input type="text" class="form-control" placeholder="EIN" formControlName="EIN">
+                  <div class="form-text error" *ngIf="uboForm.controls.EIN.touched">
+                      <div *ngIf="uboForm.controls.EIN.hasError('required')">EIN is required.</div>
+                  </div>
+              </fieldset>
+              <fieldset class="form-group">
+                  <label for="lblclassificationCode">Classification Code</label>
+                  <input type="text" class="form-control" placeholder="ClassificationCode" formControlName="classifcationCode">
+                  <div class='form-text error' *ngIf="uboForm.controls.classificaitonCode.touched">
+                      <div *ngIf="uboForm.controls.classificationCode.hasError('required')">Password is required.</div>
+                  </div>
+              </fieldset>
+
+              <fieldset class="form-group">
+                  <label for="lblFormationZipCode">FormationZIP/PostalCode</label>
+                  <input type="text" class="form-control" placeholder="formation ZIP Code" formControlName="formationZIPCode">
+                  <div class='form-text error' *ngIf="uboForm.controls.zipCode.touched">
+                      <div *ngIf="uboForm.hasError('zipCode')">zipCode do not match.</div>
+                  </div>
+              </fieldset>
+
+              <fieldset class="form-group">
+                  <label for="first-name">Formation Country Code</label>
+                  <input type="text" class="form-control" placeholder="formationCountryCode" formControlName="formationCountryCode">
+                  <div class='form-text error' *ngIf='uboForm.controls.countryCode.touched'>
+                      <div *ngIf="uboForm.controls.countryCode.hasError('required')">Country Code is required.</div>
+                  </div>
+              </fieldset>
+              <fieldset class="form-group">
+                  <label for="last-name">Business Operating ZIP/Postal Code</label>
+                  <input type="text" class="form-control" placeholder="bussinessZIPCode" formControlName="bussinessZIPCode">
+                  <div class='form-text error' *ngIf='uboForm.controls.businessZIPCode.touched'>
+                      <div *ngIf="uboForm.controls.businessZIPCode.hasError('required')">Business ZIP Code is required.</div>
+                  </div>
+              </fieldset>
+              <fieldset class="form-group">
+                  <label for="last-name">Business Operating Country Code</label>
+                  <input type="text" class="form-control" placeholder="bussinessCountryCode" formControlName="bussinessCountryCode">
+                  <div class='form-text error' *ngIf='uboForm.controls.bussinessCountryCode.touched'>
+                      <div *ngIf="uboForm.controls.bussinessCountryCode.hasError('required')">Business ZIP Code is required.</div>
+                  </div>
+              </fieldset>
+              <button class='btn btn-primary' type='submit' [disabled]='!uboForm.valid'>Save</button>
+              <button class='btn btn-primary' type='submit' [disabled]='!uboForm.valid'>Cancel</button>
+          </form>
+          <pre>{{uboForm.value | json}}</pre>
+      </div>
+  </div>
+</div>
